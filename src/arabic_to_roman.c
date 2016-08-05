@@ -2,21 +2,27 @@
 #include <string.h>
 #include "roman_arabic_map.h"
 
+struct RomanArabicMap get_roman_arabic_map(int remainder) {
+	for(int i = 0; i < get_maps_size(); ++i) {
+		struct RomanArabicMap map = roman_arabic_maps[i]; 
+		if (remainder - map.arabic >= 0) {
+			return map;
+		}
+	}
+
+	return Zero;
+}
+
 char *to_roman(int arabic) {
 	char *roman;
-	roman = (char *) malloc(1000);
+	roman = (char *) malloc(15);
 	int currentIndex = 0;
 	while(arabic != 0) {
-		for(int i = 0; i < get_maps_size(); ++i) {
-			struct RomanArabicMap map = roman_arabic_maps[i]; 
-			int remainder = arabic - map.arabic; 
-			if(remainder >= 0) {
-				arabic = remainder;
-				roman[currentIndex++] = map.roman[0];
-				if (map.roman[1] != NA) {
-					roman[currentIndex++] = map.roman[1];
-				}
-			}
+		struct RomanArabicMap map = get_roman_arabic_map(arabic);
+		arabic = arabic - map.arabic;
+		roman[currentIndex++] = map.roman[0];
+		if (map.roman[1] != NA) {
+			roman[currentIndex++] = map.roman[1];
 		}
 	}
 	roman[currentIndex] = '\0';
