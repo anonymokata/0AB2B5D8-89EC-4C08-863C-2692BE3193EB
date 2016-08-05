@@ -105,6 +105,12 @@ START_TEST(given_DCCCLXXXIV_when_to_arabic_then_884) {
 }
 END_TEST
 
+START_TEST(given_MMMCMXCIX_when_to_arabic_then_3999) {
+	int result = to_arabic("MMMCMXCIX");
+	ck_assert_int_eq(result, 3999);
+}
+END_TEST
+
 Suite * roman_to_arabic_suite(void) {
 	Suite *suite;
 	TCase *testCase;
@@ -130,6 +136,7 @@ Suite * roman_to_arabic_suite(void) {
 	tcase_add_test(testCase, given_CMXCIX_when_to_arabic_then_999);
 	tcase_add_test(testCase, given_MXCIX_when_to_arabic_then_1099);
 	tcase_add_test(testCase, given_DCCCLXXXIV_when_to_arabic_then_884);
+	tcase_add_test(testCase, given_MMMCMXCIX_when_to_arabic_then_3999);
 
 	suite_add_tcase(suite, testCase);
 	return suite;
