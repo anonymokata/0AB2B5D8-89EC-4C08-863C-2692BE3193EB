@@ -14,6 +14,12 @@ START_TEST(given_II_and_I_when_add_then_III) {
 }
 END_TEST
 
+START_TEST(given_II_and_II_when_add_then_IV) {
+	char * result = add_roman_numerals("II", "II");
+	ck_assert_str_eq(result, "IV");
+}
+END_TEST
+
 Suite * roman_calculator_suite(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -23,6 +29,7 @@ Suite * roman_calculator_suite(void) {
 
 	tcase_add_test(tc_core, given_I_and_I_when_add_then_II);
 	tcase_add_test(tc_core, given_II_and_I_when_add_then_III);
+	tcase_add_test(tc_core, given_II_and_II_when_add_then_IV);
 	suite_add_tcase(s, tc_core);
 
 	return s;
