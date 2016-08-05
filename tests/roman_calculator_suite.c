@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <check.h>
 #include "../src/roman_calculator.h"
+#include "roman_calculator_suite.h"
 
 START_TEST(given_I_and_I_when_add_then_II) {
 	char * result = add_roman_numerals("I", "I");
@@ -33,18 +34,4 @@ Suite * roman_calculator_suite(void) {
 	suite_add_tcase(s, tc_core);
 
 	return s;
-}
-
-int main(void) {
-	int failed_count;
-	Suite *suite;
-	SRunner *suiteRunner;
-
-	suite = roman_calculator_suite();
-	suiteRunner = srunner_create(suite);
-
-	srunner_run_all(suiteRunner, CK_NORMAL);
-	failed_count = srunner_ntests_failed(suiteRunner);
-	srunner_free(suiteRunner);
-	return (failed_count == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
