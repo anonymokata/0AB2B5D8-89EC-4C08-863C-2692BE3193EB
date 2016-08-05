@@ -1,36 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
-const char NA = '*';
-
-struct RomanArabicMap {
-	char roman[2];
-	int arabic;
-} RomanArabicMap;
-
-struct RomanArabicMap Zero = {{'*', '*'}, 0};
-
-struct RomanArabicMap maps[] = {
-	{{'I', '*'}, 1},
-	{{'I', 'V'}, 4},
-	{{'V', '*'}, 5},
-	{{'I', 'X'}, 9},
-	{{'X', '*'}, 10},
-	{{'X', 'L'}, 40},
-	{{'L', '*'}, 50},
-	{{'X', 'C'}, 90},
-	{{'C', '*'}, 100},
-	{{'C', 'D'}, 400},
-	{{'C', 'M'}, 900},
-	{{'D', '*'}, 500},
-	{{'M', '*'}, 1000}
-
-};
-
-int get_maps_size() {
-	return sizeof(maps) / sizeof(RomanArabicMap);
-}
+#include "roman_arabic_map.h"
 
 bool equal(struct RomanArabicMap map, char first, char second) {
 	return map.roman[0] == first
@@ -38,8 +9,8 @@ bool equal(struct RomanArabicMap map, char first, char second) {
 }
 
 struct RomanArabicMap get_map_from_characters(char first, char second) {
-	for(int i = get_maps_size() - 1; i > -1; --i) {
-		struct RomanArabicMap map = maps[i];
+	for(int i = 0; i < get_maps_size; ++i) {
+		struct RomanArabicMap map = roman_arabic_maps[i];
 		if (equal(map, first, second)) {
 			return map;
 		}

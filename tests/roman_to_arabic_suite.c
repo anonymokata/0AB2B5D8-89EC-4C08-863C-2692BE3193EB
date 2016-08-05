@@ -82,19 +82,19 @@ START_TEST(given_M_when_to_arabic_then_1000) {
 END_TEST
 
 START_TEST(given_CIII_when_to_arabic_then_103) {
-int result = to_arabic("CIII");
+	int result = to_arabic("CIII");
 	ck_assert_int_eq(result, 103);
 }
 END_TEST
 
 START_TEST(given_CMXCIX_when_to_arabic_then_999) {
-int result = to_arabic("CMXCIX");
+	int result = to_arabic("CMXCIX");
 	ck_assert_int_eq(result, 999);
 }
 END_TEST
 
 START_TEST(given_MXCIX_when_to_arabic_then_1099) {
-int result = to_arabic("MXCIX");
+	int result = to_arabic("MXCIX");
 	ck_assert_int_eq(result, 1099);
 }
 END_TEST
@@ -123,7 +123,6 @@ Suite * roman_to_arabic_suite(void) {
 	tcase_add_test(testCase, given_CIII_when_to_arabic_then_103);
 	tcase_add_test(testCase, given_CMXCIX_when_to_arabic_then_999);
 	tcase_add_test(testCase, given_MXCIX_when_to_arabic_then_1099);
-
 
 	suite_add_tcase(suite, testCase);
 	return suite;
