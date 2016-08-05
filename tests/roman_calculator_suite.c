@@ -36,19 +36,60 @@ START_TEST(given_MCXVI_and_CM_when_add_then_CMIX) {
 }
 END_TEST
 
+START_TEST(given_II_and_I_when_subtract_then_I) {
+	char * result = subtract_roman_numerals("II", "I");
+	ck_assert_str_eq(result, "I");
+}
+END_TEST
+
+START_TEST(given_IV_and_I_when_subtract_then_III) {
+	char * result = subtract_roman_numerals("IV", "I");
+	ck_assert_str_eq(result, "III");
+}
+END_TEST
+
+START_TEST(given_M_and_CM_when_subtract_then_C) {
+	char * result = subtract_roman_numerals("M", "CM");
+	ck_assert_str_eq(result, "C");
+}
+END_TEST
+
+START_TEST(given_CM_and_X_when_subtract_then_DCCCXC) {
+	// CM     = 900
+	// X      = 10
+	// -
+	// DCCCXC = 890
+
+	char * result = subtract_roman_numerals("CM", "X");
+	ck_assert_str_eq(result, "DCCCXC");
+}
+END_TEST
+
+TCase *create_add_test_case() {
+	TCase *add_case;
+	add_case = tcase_create("Add");
+	tcase_add_test(add_case, given_I_and_I_when_add_then_II);
+	tcase_add_test(add_case, given_II_and_I_when_add_then_III);
+	tcase_add_test(add_case, given_II_and_II_when_add_then_IV);
+	tcase_add_test(add_case, given_IX_and_CM_when_add_then_CMIX);
+	tcase_add_test(add_case, given_MCXVI_and_CM_when_add_then_CMIX);
+	return add_case;
+}
+
+TCase *create_subtract_test_case() {
+	TCase *subtract_case;
+	subtract_case = tcase_create("Subtract");
+	tcase_add_test(subtract_case, given_II_and_I_when_subtract_then_I);
+	tcase_add_test(subtract_case, given_IV_and_I_when_subtract_then_III);
+	tcase_add_test(subtract_case, given_M_and_CM_when_subtract_then_C);
+	tcase_add_test(subtract_case, given_CM_and_X_when_subtract_then_DCCCXC);
+	return subtract_case;
+}
+
 Suite * roman_calculator_suite(void) {
 	Suite *s;
-	TCase *tc_core;
-
 	s = suite_create("Roman Calculator");
-	tc_core = tcase_create("Add");
-
-	tcase_add_test(tc_core, given_I_and_I_when_add_then_II);
-	tcase_add_test(tc_core, given_II_and_I_when_add_then_III);
-	tcase_add_test(tc_core, given_II_and_II_when_add_then_IV);
-	tcase_add_test(tc_core, given_IX_and_CM_when_add_then_CMIX);
-	tcase_add_test(tc_core, given_MCXVI_and_CM_when_add_then_CMIX);
-	suite_add_tcase(s, tc_core);
-
+	suite_add_tcase(s, create_add_test_case());
+	suite_add_tcase(s, create_subtract_test_case());
 	return s;
 }

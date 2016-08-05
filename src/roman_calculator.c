@@ -11,3 +11,9 @@ char * add_roman_numerals(char *first, char *second) {
 	int secondArabic = to_arabic(second);
 	return to_roman(firstArabic + secondArabic);
 }
+
+char * subtract_roman_numerals(char *first, char *second) {
+	int firstArabic = to_arabic(first);
+	int secondArabic = to_arabic(second);
+	return to_roman(firstArabic - secondArabic);
+}
