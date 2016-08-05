@@ -9,7 +9,7 @@ bool equal(struct RomanArabicMap map, char first, char second) {
 }
 
 struct RomanArabicMap get_map_from_characters(char first, char second) {
-	for(int i = 0; i < get_maps_size; ++i) {
+	for(int i = 0; i < get_maps_size(); ++i) {
 		struct RomanArabicMap map = roman_arabic_maps[i];
 		if (equal(map, first, second)) {
 			return map;
