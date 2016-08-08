@@ -2,6 +2,7 @@
 #include <check.h>
 #include <errno.h>
 #include "../src/arabic_to_roman.h"
+#include "../src/roman_error_codes.h"
 #include "arabic_to_roman_suite.h"
 
 START_TEST(given_1_when_to_roman_then_I) {
@@ -109,7 +110,7 @@ END_TEST
 START_TEST(given_0_when_to_roman_then_zero_is_not_a_valid_roman_number) {
 	char *result = to_roman(0);
 	ck_assert_str_eq(result, "Zero is not a valid roman number");
-	ck_assert_int_eq(errno, 7);
+	ck_assert_int_eq(errno, ROMAN_ZERO_IS_NOT_VALID);
 }
 END_TEST
 
