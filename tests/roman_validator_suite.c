@@ -16,14 +16,14 @@ START_TEST(given_XXXX_when_is_roman_valid_then_false) {
 }
 END_TEST
 
-START_TEST(given_MMMM_when_is_roman_valid_then_false) {
-	bool isValid = is_roman_valid("MMMM");
+START_TEST(given_CCCC_when_is_roman_valid_then_false) {
+	bool isValid = is_roman_valid("CCCC");
 	ck_assert(isValid == false);
 }
 END_TEST
 
-START_TEST(given_CCCC_when_is_roman_valid_then_false) {
-	bool isValid = is_roman_valid("CCCC");
+START_TEST(given_MMMM_when_is_roman_valid_then_false) {
+	bool isValid = is_roman_valid("MMMM");
 	ck_assert(isValid == false);
 }
 END_TEST
