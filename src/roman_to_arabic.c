@@ -24,7 +24,7 @@ struct RomanArabicMap get_map_from_string(const char *roman, int index, int leng
 	return get_map_from_characters(firstPart, secondPart);
 }
 
-int to_arabic(char *roman) {
+int to_arabic(const char *roman) {
 	int value = 0;
 	int length = strlen(roman);
 	for(int i = 0; i < length; ++i) {
