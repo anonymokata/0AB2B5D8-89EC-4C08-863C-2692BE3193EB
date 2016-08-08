@@ -17,6 +17,7 @@ bool is_roman_valid(const char *roman) {
 		{'C', 3, 0},
 		{'L', 1, 0},
 		{'X', 3, 0},
+		{'V', 1, 0},
 		{'I', 3, 0}
 	};
 
