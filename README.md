@@ -21,7 +21,7 @@ Roman numeral values are defined as:
 
 Some rules when adding or subtracting roman numerals are:
 	1.) I, X, C, and M may not appear more than three times. (`II + II is not IIII`, instead `II + II is IV`)
-	2.) V, L , and D my only appear once. (`D + D is not DD`, instead `D + D is M`)
+	2.) V, L, and D my only appear once. (`D + D is not DD`, instead `D + D is M`)
 	3.) The max roman numeral is `3999` (`MMMCMXCIX`)
 
 ## Examples
