@@ -111,6 +111,12 @@ START_TEST(given_0_when_to_roman_then_zero_is_not_a_valid_roman_number) {
 }
 END_TEST
 
+START_TEST(given_negative_1_when_to_roman_then_negative_numbers_are_not_allowed) {
+	char *result = to_roman(-1);
+	ck_assert_str_eq(result, "Negative numbers are not allowed");
+}	
+END_TEST
+
 Suite * arabic_to_roman_suite(void) {
 	Suite *suite;
 	TCase *testCase;
@@ -136,7 +142,9 @@ Suite * arabic_to_roman_suite(void) {
 	tcase_add_test(testCase, given_999_when_to_roman_then_CMXCIX);
 	tcase_add_test(testCase, given_1099_when_to_roman_then_MXCIX);
 	tcase_add_test(testCase, given_3999_when_to_roman_then_MMMCMXCIX);
+	
 	tcase_add_test(testCase, given_0_when_to_roman_then_zero_is_not_a_valid_roman_number);
+	tcase_add_test(testCase, given_negative_1_when_to_roman_then_negative_numbers_are_not_allowed);
 
 	suite_add_tcase(suite, testCase);
 	return suite;
