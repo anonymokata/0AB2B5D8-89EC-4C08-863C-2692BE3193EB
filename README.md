@@ -34,3 +34,11 @@ Some examples of addtion and subraction cases are below:
 ### Subtraction
 `IV - I = III`<br/>
 `C - I = XCIX`<br/>
+
+## Error Codes
+This library will return error codes in the `errno` value. The error codes can be found in the [error_codes.h](src/error_codes.h) and [error_codes.c](src/error_codes.c). The meaning of each is also denoted below:<br/>
+|Name 					 | Value | Description																				|
+|------------------------|-------|------------------------------------------------------------------------------------------|
+|ROMAN_NUMERAL_LIMIT     | 4 	 | The input contained too many of one character, for instance XXXX would have too many X's |
+|NEGATIVE_RESULT 		 | 5 	 | The input provided would result in a negative roman numeral which is invalid 			| 
+|ROMAN_NUMERAL_TOO_LARGE | 6 	 | The input provided would result in a roman numeral wich is larger than 3999				|
