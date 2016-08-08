@@ -72,6 +72,12 @@ START_TEST(given_I_and_MMMM_when_add_then_MMMM_is_not_valid) {
 }
 END_TEST
 
+START_TEST(given_MMMCMXCIX_and_I_when_add_then_resulting_value_is_invalid) {
+	char * result = add_roman_numerals("MMMCMXCIX", "I");
+	ck_assert_str_eq(result, "Resulting value is not valid");
+}	
+END_TEST
+
 START_TEST(given_II_and_I_when_subtract_then_I) {
 	char * result = subtract_roman_numerals("II", "I");
 	ck_assert_str_eq(result, "I");
@@ -146,6 +152,7 @@ TCase *create_add_test_case() {
 	tcase_add_test(add_case, given_I_and_XXXX_when_add_then_XXXX_is_not_valid);	
 	tcase_add_test(add_case, given_MMMM_and_I_when_add_then_MMMM_is_not_valid);
 	tcase_add_test(add_case, given_I_and_MMMM_when_add_then_MMMM_is_not_valid);
+	tcase_add_test(add_case, given_MMMCMXCIX_and_I_when_add_then_resulting_value_is_invalid);
 	return add_case;
 }
 
