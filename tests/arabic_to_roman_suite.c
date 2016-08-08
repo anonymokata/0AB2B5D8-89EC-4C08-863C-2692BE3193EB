@@ -110,7 +110,7 @@ END_TEST
 START_TEST(given_4000_when_to_roman_then_roman_number_too_large) {
 	char *result = to_roman(4000);
 	ck_assert_str_eq(result, "Resulting value is not valid");
-	ck_assert_int_eq(errno, 6);
+	ck_assert_int_eq(errno, ROMAN_NUMERAL_TOO_LARGE);
 }
 END_TEST
 
