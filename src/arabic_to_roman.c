@@ -17,7 +17,7 @@ struct RomanArabicMap get_roman_arabic_map(int remainder) {
 
 char *to_roman(int arabic) {
 	if(arabic > MAX_ARABIC_VALUE) {
-		errno = 6;
+		errno = ROMAN_NUMERAL_TOO_LARGE;
 		return "Resulting value is not valid";
 	}
 

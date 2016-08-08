@@ -3,5 +3,6 @@
 const int ROMAN_SUCCESS;
 const int ROMAN_NUMERAL_LIMIT;
 const int ROMAN_ZERO_IS_NOT_VALID;
+const int ROMAN_NUMERAL_TOO_LARGE;
 const int ROMAN_NEGATIVE_NOT_VALID;
 #endif
