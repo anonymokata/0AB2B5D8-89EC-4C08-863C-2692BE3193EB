@@ -10,6 +10,7 @@ bool is_roman_numeral_valid(const char *roman) {
 	int length = strlen(roman);
 	int iCount = 0;
 	int mCount = 0;
+	int xCount = 0;
 	for(int i = 0; i < length; ++i) {
 		if(roman[i] == 'I') {
 			iCount++;
@@ -18,9 +19,14 @@ bool is_roman_numeral_valid(const char *roman) {
 		if(roman[i] == 'M') {
 			mCount++;
 		}
+
+		if(roman[i] == 'X') {
+			xCount++;
+		}
 	}
 	return iCount < 4
-		&& mCount < 4;
+		&& mCount < 4
+		&& xCount < 4;
 }
 
 char * add_roman_numerals(const char *first, const char *second) {
