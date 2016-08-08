@@ -36,7 +36,7 @@ Some examples of addtion and subraction cases are below:
 `C - I = XCIX`<br/>
 
 ## Error Codes
-This library will return error codes in the `errno` value. The error codes can be found in the [error_codes.h](src/error_codes.h) and [error_codes.c](src/error_codes.c). The meaning of each is also denoted below:<br/>
+This library will return error codes in the `errno` value. The error codes can be found in the [roman_error_codes.h](src/roman_error_codes.h) and [roman_error_codes.c](src/roman_error_codes.c). The meaning of each is also denoted below:<br/>
 |Name 					 | Value | Description																				|
 |------------------------|-------|------------------------------------------------------------------------------------------|
 |ROMAN_NUMERAL_LIMIT     | 4 	 | The input contained too many of one character, for instance XXXX would have too many X's |
