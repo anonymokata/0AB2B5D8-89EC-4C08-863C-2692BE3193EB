@@ -99,9 +99,15 @@ START_TEST(given_1099_when_to_roman_then_MXCIX) {
 }
 END_TEST
 
-START_TEST(given_3999_when_to_arabic_then_MMMCMXCIX) {
+START_TEST(given_3999_when_to_roman_then_MMMCMXCIX) {
 	char *result = to_roman(3999);
 	ck_assert_str_eq(result, "MMMCMXCIX");
+}
+END_TEST
+
+START_TEST(given_0_when_to_roman_then_zero_is_not_a_valid_roman_number) {
+	char *result = to_roman(0);
+	ck_assert_str_eq(result, "Zero is not a valid roman number");
 }
 END_TEST
 
@@ -129,7 +135,8 @@ Suite * arabic_to_roman_suite(void) {
 	tcase_add_test(testCase, given_103_when_to_roman_then_CIII);
 	tcase_add_test(testCase, given_999_when_to_roman_then_CMXCIX);
 	tcase_add_test(testCase, given_1099_when_to_roman_then_MXCIX);
-	tcase_add_test(testCase, given_3999_when_to_arabic_then_MMMCMXCIX);
+	tcase_add_test(testCase, given_3999_when_to_roman_then_MMMCMXCIX);
+	tcase_add_test(testCase, given_0_when_to_roman_then_zero_is_not_a_valid_roman_number);
 
 	suite_add_tcase(suite, testCase);
 	return suite;
