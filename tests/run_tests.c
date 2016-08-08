@@ -3,6 +3,7 @@
 #include "roman_calculator_suite.h"
 #include "roman_to_arabic_suite.h"
 #include "arabic_to_roman_suite.h"
+#include "roman_validator_suite.h"
 
 int main(void) {
 	int failed_count;
@@ -13,6 +14,7 @@ int main(void) {
 	runner = srunner_create(suite);
 	srunner_add_suite(runner, roman_to_arabic_suite());
 	srunner_add_suite(runner, arabic_to_roman_suite());
+	srunner_add_suite(runner, roman_validator_suite());
 
 	srunner_run_all(runner, CK_VERBOSE);
 	failed_count = srunner_ntests_failed(runner);
