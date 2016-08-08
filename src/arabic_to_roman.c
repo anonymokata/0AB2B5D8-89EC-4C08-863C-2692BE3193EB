@@ -26,6 +26,7 @@ char *to_roman(int arabic) {
 	}
 
 	if(arabic < 0) {
+		errno = 5;
 		return "Negative numbers are not allowed";
 	}
 	
