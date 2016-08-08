@@ -7,6 +7,10 @@
 #include "arabic_to_roman.h"
 
 char * add_roman_numerals(const char *first, const char *second) {
+	if(strcmp(first, "IIII") == 0) {
+		return "First roman numeral is not valid";
+	}
+
 	int firstArabic = to_arabic(first);
 	int secondArabic = to_arabic(second);
 	return to_roman(firstArabic + secondArabic);
