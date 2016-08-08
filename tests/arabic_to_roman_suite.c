@@ -129,7 +129,7 @@ START_TEST(given_negative_1_when_to_roman_then_negative_numbers_are_not_allowed)
 END_TEST
 
 START_TEST(given_1_when_to_roman_then_no_error) {
-	char *result = to_roman(1);
+	to_roman(1);
 	ck_assert_int_eq(errno, ROMAN_SUCCESS);
 }	
 END_TEST
