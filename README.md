@@ -42,3 +42,4 @@ This library will return error codes in the `errno` value. The error codes can b
 |ROMAN_NUMERAL_LIMIT     | 4 	 | The input contained too many of one character, for instance XXXX would have too many X's |
 |NEGATIVE_RESULT 		 | 5 	 | The input provided would result in a negative roman numeral which is invalid 			| 
 |ROMAN_NUMERAL_TOO_LARGE | 6 	 | The input provided would result in a roman numeral wich is larger than 3999				|
+|ZERO_IS_NOT_VALID 		 | 7 	 | The input provided would result in zero which is not a valid roman numeral				|

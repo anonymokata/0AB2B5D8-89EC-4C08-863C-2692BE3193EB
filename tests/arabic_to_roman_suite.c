@@ -108,6 +108,7 @@ END_TEST
 START_TEST(given_0_when_to_roman_then_zero_is_not_a_valid_roman_number) {
 	char *result = to_roman(0);
 	ck_assert_str_eq(result, "Zero is not a valid roman number");
+	ck_assert_int_eq(errno, 7);
 }
 END_TEST
 
