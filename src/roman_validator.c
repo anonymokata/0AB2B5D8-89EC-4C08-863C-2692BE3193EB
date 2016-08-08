@@ -21,6 +21,7 @@ bool is_roman_valid(const char *roman) {
 	for(int i = 0; i < mapsSize; ++i) {
 		counts[i] = 0;
 	}
+	
 	for(int i = 0; i < length; ++i) {
 		struct RomanArabicMap map = get_map_from_string(roman, i, length);
 		if(map.roman[1] != NA) {

@@ -18,7 +18,12 @@ char * add_roman_numerals(const char *first, const char *second) {
 
 	int firstArabic = to_arabic(first);
 	int secondArabic = to_arabic(second);
-	return to_roman(firstArabic + secondArabic);
+	int result = firstArabic + secondArabic;
+	if(result > 3999) {
+		return "Resulting value is not valid";
+	}
+
+	return to_roman(result);
 }
 
 char * subtract_roman_numerals(const char *first, const char *second) {
