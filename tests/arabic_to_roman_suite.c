@@ -117,6 +117,7 @@ END_TEST
 START_TEST(given_negative_1_when_to_roman_then_negative_numbers_are_not_allowed) {
 	char *result = to_roman(-1);
 	ck_assert_str_eq(result, "Negative numbers are not allowed");
+	ck_assert_int_eq(errno, 5);
 }	
 END_TEST
 
