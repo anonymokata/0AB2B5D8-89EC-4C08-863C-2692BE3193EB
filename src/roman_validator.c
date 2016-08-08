@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdbool.h>
+#include <errno.h>
 #include "roman_arabic_map.h"
 #include "roman_validator.h"
 
@@ -31,6 +32,7 @@ bool is_roman_valid(const char *roman) {
 		counts[mapIndex]++;
 
 		if(counts[mapIndex] > map.limit) {
+			errno = 4;
 			return false;
 		}
 	}
