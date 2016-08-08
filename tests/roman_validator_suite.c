@@ -1,12 +1,14 @@
 #include <stdlib.h>
 #include <check.h>
 #include <stdbool.h>
+#include <errno.h>
 #include "../src/roman_validator.h"
 #include "roman_validator_suite.h"
 
 START_TEST(given_IIII_when_is_roman_valid_then_false) {
 	bool isValid = is_roman_valid("IIII");
 	ck_assert(isValid == false);
+	ck_assert_int_eq(4, errno);
 }
 END_TEST
 
