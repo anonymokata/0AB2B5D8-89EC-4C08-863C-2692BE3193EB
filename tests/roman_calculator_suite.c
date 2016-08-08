@@ -83,6 +83,12 @@ START_TEST(given_IIII_and_I_when_subtract_then_IIII_is_not_valid) {
 }
 END_TEST
 
+START_TEST(given_I_and_IIII_when_subtract_then_IIII_is_not_valid) {
+	char * result = subtract_roman_numerals("I", "IIII");
+	ck_assert_str_eq(result, "Second roman numeral is not valid");
+}
+END_TEST
+
 TCase *create_add_test_case() {
 	TCase *add_case;
 	add_case = tcase_create("Add");
@@ -106,6 +112,7 @@ TCase *create_subtract_test_case() {
 	tcase_add_test(subtract_case, given_CM_and_X_when_subtract_then_DCCCXC);
 
 	tcase_add_test(subtract_case, given_IIII_and_I_when_subtract_then_IIII_is_not_valid);
+	tcase_add_test(subtract_case, given_I_and_IIII_when_subtract_then_IIII_is_not_valid);
 	return subtract_case;
 }
 
