@@ -128,6 +128,12 @@ START_TEST(given_negative_1_when_to_roman_then_negative_numbers_are_not_allowed)
 }	
 END_TEST
 
+START_TEST(given_1_when_to_roman_then_no_error) {
+	char *result = to_roman(1);
+	ck_assert_int_eq(errno, ROMAN_SUCCESS);
+}	
+END_TEST
+
 Suite * arabic_to_roman_suite(void) {
 	Suite *suite;
 	TCase *testCase;
@@ -157,6 +163,7 @@ Suite * arabic_to_roman_suite(void) {
 	tcase_add_test(testCase, given_4000_when_to_roman_then_roman_number_too_large);
 	tcase_add_test(testCase, given_0_when_to_roman_then_zero_is_not_a_valid_roman_number);
 	tcase_add_test(testCase, given_negative_1_when_to_roman_then_negative_numbers_are_not_allowed);
+	tcase_add_test(testCase, given_1_when_to_roman_then_no_error);
 
 	suite_add_tcase(suite, testCase);
 	return suite;
