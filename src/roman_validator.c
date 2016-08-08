@@ -1,38 +1,36 @@
 #include <string.h>
 #include <stdbool.h>
+#include "roman_arabic_map.h"
 #include "roman_validator.h"
+
+struct RomanLimit {
+	char roman;
+	int limit;
+	int count;
+} RomanLimit;
 
 bool is_roman_valid(const char *roman) {
 	int length = strlen(roman);
-	int iCount = 0;
-	int mCount = 0;
-	int xCount = 0;
-	int cCount = 0;
-	int dCount = 0;
+	struct RomanLimit limits[] = {
+		{'M', 3, 0},
+		{'D', 1, 0},
+		{'C', 3, 0},
+		{'X', 3, 0},
+		{'I', 3, 0}
+	};
+
+	int limitSize = sizeof(limits) / sizeof(RomanLimit);
+
 	for(int i = 0; i < length; ++i) {
-		if(roman[i] == 'I') {
-			iCount++;
-		}
+		for(int j = 0; j < limitSize; ++j) {
+			if (limits[j].roman == roman[i]) {
+				limits[j].count++;
+			}
 
-		if(roman[i] == 'M') {
-			mCount++;
-		}
-
-		if(roman[i] == 'X') {
-			xCount++;
-		}
-
-		if(roman[i] == 'C') {
-			cCount++;
-		}
-
-		if(roman[i] == 'D') {
-			dCount ++;
+			if(limits[j].count > limits[j].limit) {
+				return false;
+			}
 		}
 	}
-	return iCount < 4
-		&& mCount < 4
-		&& xCount < 4
-		&& cCount < 4
-		&& dCount < 2;
+	return true;
 }
