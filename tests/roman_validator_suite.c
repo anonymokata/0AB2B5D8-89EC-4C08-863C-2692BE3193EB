@@ -30,6 +30,7 @@ END_TEST
 START_TEST(given_MMMM_when_is_roman_valid_then_false) {
 	bool isValid = is_roman_valid("MMMM");
 	ck_assert(isValid == false);
+	ck_assert_int_eq(ROMAN_NUMERAL_LIMIT, errno);
 }
 END_TEST
 
