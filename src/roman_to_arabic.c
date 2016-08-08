@@ -18,7 +18,7 @@ struct RomanArabicMap get_map_from_characters(char first, char second) {
 	return Zero;
 }
 
-struct RomanArabicMap get_map_from_string(char *roman, int index, int length) {
+struct RomanArabicMap get_map_from_string(const char *roman, int index, int length) {
 	char firstPart = roman[index];
 	char secondPart = index < length - 1 ? roman[index + 1] : NA;
 	return get_map_from_characters(firstPart, secondPart);

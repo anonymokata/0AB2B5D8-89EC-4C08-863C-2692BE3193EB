@@ -6,13 +6,13 @@
 #include "roman_to_arabic.h"
 #include "arabic_to_roman.h"
 
-char * add_roman_numerals(char *first, char *second) {
+char * add_roman_numerals(const char *first, const char *second) {
 	int firstArabic = to_arabic(first);
 	int secondArabic = to_arabic(second);
 	return to_roman(firstArabic + secondArabic);
 }
 
-char * subtract_roman_numerals(char *first, char *second) {
+char * subtract_roman_numerals(const char *first, const char *second) {
 	int firstArabic = to_arabic(first);
 	int secondArabic = to_arabic(second);
 	return to_roman(firstArabic - secondArabic);
