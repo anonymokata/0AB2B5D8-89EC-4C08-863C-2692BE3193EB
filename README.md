@@ -37,9 +37,9 @@ Some examples of addtion and subraction cases are below:
 
 ## Error Codes
 This library will return error codes in the `errno` value. The error codes can be found in the [roman_error_codes.h](src/roman_error_codes.h) and [roman_error_codes.c](src/roman_error_codes.c). The meaning of each is also denoted below:<br/>
-|Name 					 | Value | Description																				|
-|------------------------|-------|------------------------------------------------------------------------------------------|
-|ROMAN_NUMERAL_LIMIT     | 4 	 | The input contained too many of one character, for instance XXXX would have too many X's |
-|NEGATIVE_RESULT 		 | 5 	 | The input provided would result in a negative roman numeral which is invalid 			| 
-|ROMAN_NUMERAL_TOO_LARGE | 6 	 | The input provided would result in a roman numeral wich is larger than 3999				|
-|ZERO_IS_NOT_VALID 		 | 7 	 | The input provided would result in zero which is not a valid roman numeral				|
+| Name 					  | Value | Description																				 |
+|-------------------------|-------|------------------------------------------------------------------------------------------|
+| ROMAN_NUMERAL_LIMIT     | 4 	  | The input contained too many of one character, for instance XXXX would have too many X's |
+| ROMAN_NEGATIVE_RESULT   | 5 	  | The input provided would result in a negative roman numeral which is invalid 			 | 
+| ROMAN_NUMERAL_TOO_LARGE | 6 	  | The input provided would result in a roman numeral wich is larger than 3999				 |
+| ROMAN_ZERO_IS_NOT_VALID | 7 	  | The input provided would result in zero which is not a valid roman numeral				 |

@@ -2,4 +2,5 @@
 #define ROMAN_ERROR_CODES
 const int ROMAN_SUCCESS;
 const int ROMAN_NUMERAL_LIMIT;
+const int ROMAN_ZERO_IS_NOT_VALID;
 #endif

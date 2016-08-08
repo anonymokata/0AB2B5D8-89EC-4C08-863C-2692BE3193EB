@@ -2,6 +2,7 @@
 #include <string.h>
 #include <errno.h>
 #include "roman_arabic_map.h"
+#include "roman_error_codes.h"
 
 struct RomanArabicMap get_roman_arabic_map(int remainder) {
 	for(int i = 0; i < get_maps_size(); ++i) {
@@ -20,7 +21,7 @@ char *to_roman(int arabic) {
 	}
 
 	if(arabic == 0) {
-		errno = 7;
+		errno = ROMAN_ZERO_IS_NOT_VALID;
 		return "Zero is not a valid roman number";
 	}
 
