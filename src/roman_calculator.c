@@ -31,6 +31,10 @@ char * subtract_roman_numerals(const char *first, const char *second) {
 
 	int firstArabic = to_arabic(first);
 	int secondArabic = to_arabic(second);
+
+	if(firstArabic < secondArabic) {
+		return "Invalid subtraction second number is greater than first number";
+	}
 	return to_roman(firstArabic - secondArabic);
 }
 
