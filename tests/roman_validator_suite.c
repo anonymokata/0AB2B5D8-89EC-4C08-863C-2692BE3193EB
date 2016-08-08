@@ -34,6 +34,12 @@ START_TEST(given_DD_when_is_roman_valid_then_false) {
 }
 END_TEST
 
+START_TEST(given_LL_when_is_roman_valid_then_false) {
+	bool isValid = is_roman_valid("LL");
+	ck_assert(isValid == false);
+}
+END_TEST
+
 Suite * roman_validator_suite(void) {
 	Suite *suite;
 	TCase *testCase;
@@ -47,6 +53,7 @@ Suite * roman_validator_suite(void) {
 	tcase_add_test(testCase, given_MMMM_when_is_roman_valid_then_false);
 	
 	tcase_add_test(testCase, given_DD_when_is_roman_valid_then_false);
+	tcase_add_test(testCase, given_LL_when_is_roman_valid_then_false);
 
 	suite_add_tcase(suite, testCase);
 	return suite;
