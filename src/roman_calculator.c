@@ -7,7 +7,20 @@
 #include "arabic_to_roman.h"
 
 bool is_roman_numeral_valid(const char *roman) {
-	return strcmp(roman , "IIII") != 0;
+	int length = strlen(roman);
+	int iCount = 0;
+	int mCount = 0;
+	for(int i = 0; i < length; ++i) {
+		if(roman[i] == 'I') {
+			iCount++;
+		}
+
+		if(roman[i] == 'M') {
+			mCount++;
+		}
+	}
+	return iCount < 4
+		&& mCount < 4;
 }
 
 char * add_roman_numerals(const char *first, const char *second) {
