@@ -10,6 +10,7 @@ typedef struct RomanArabicMap {
 
 extern RomanArabicMap roman_arabic_maps[];
 extern RomanArabicMap Zero;
+extern const int MAX_ARABIC_VALUE;
 extern const char NA;
 
 int get_maps_size();

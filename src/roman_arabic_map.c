@@ -2,6 +2,7 @@
 #include "roman_arabic_map.h"
 
 const char NA = '*';
+const int MAX_ARABIC_VALUE = 3999;
 
 struct RomanArabicMap Zero = {{'*', '*'}, 0, 0};
 

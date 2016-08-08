@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "roman_arabic_map.h"
 #include "roman_calculator.h"
 #include "roman_to_arabic.h"
 #include "arabic_to_roman.h"
@@ -19,7 +20,7 @@ char * add_roman_numerals(const char *first, const char *second) {
 	int firstArabic = to_arabic(first);
 	int secondArabic = to_arabic(second);
 	int result = firstArabic + secondArabic;
-	if(result > 3999) {
+	if(result > MAX_ARABIC_VALUE) {
 		return "Resulting value is not valid";
 	}
 
