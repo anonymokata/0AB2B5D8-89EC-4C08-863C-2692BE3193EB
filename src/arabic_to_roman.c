@@ -21,6 +21,10 @@ char *to_roman(int arabic) {
 	if(arabic == 0) {
 		return "Zero is not a valid roman number";
 	}
+
+	if(arabic < 0) {
+		return "Negative numbers are not allowed";
+	}
 	
 	char *roman;
 	roman = (char *) malloc(15);
