@@ -3,35 +3,36 @@
 #include "roman_arabic_map.h"
 #include "roman_validator.h"
 
-struct RomanLimit {
-	char roman;
-	int limit;
-	int count;
-} RomanLimit;
+int get_map_index(struct RomanArabicMap map) {
+	for(int i = 0; i < get_maps_size(); ++i) {
+		if (are_equal(roman_arabic_maps[i], map)) {
+			return i;
+		}
+	}
+
+	return -1;
+}
 
 bool is_roman_valid(const char *roman) {
 	int length = strlen(roman);
-	struct RomanLimit limits[] = {
-		{'M', 3, 0},
-		{'D', 1, 0},
-		{'C', 3, 0},
-		{'L', 1, 0},
-		{'X', 3, 0},
-		{'V', 1, 0},
-		{'I', 3, 0}
-	};
+	int mapsSize = get_maps_size();
+	int counts[mapsSize];
 
-	int limitSize = sizeof(limits) / sizeof(RomanLimit);
+	for(int i = 0; i < mapsSize; ++i) {
+		counts[i] = 0;
+	}
 	for(int i = 0; i < length; ++i) {
-		for(int j = 0; j < limitSize; ++j) {
-			if (limits[j].roman == roman[i]) {
-				limits[j].count++;
-			}
+		struct RomanArabicMap map = get_map_from_string(roman, i, length);
+		if(map.roman[1] != NA) {
+			i++;
+		}
+		int mapIndex = get_map_index(map);
+		counts[mapIndex]++;
 
-			if(limits[j].count > limits[j].limit) {
-				return false;
-			}
+		if(counts[mapIndex] > map.limit) {
+			return false;
 		}
 	}
+
 	return true;
 }
