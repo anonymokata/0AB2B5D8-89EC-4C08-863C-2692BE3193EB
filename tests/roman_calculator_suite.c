@@ -77,6 +77,12 @@ START_TEST(given_CM_and_X_when_subtract_then_DCCCXC) {
 }
 END_TEST
 
+START_TEST(given_I_and_II_when_subtract_then_invalid_subtraction_second_number_is_greater_than_first_number) {
+	char * result = subtract_roman_numerals("I", "II");
+	ck_assert_str_eq(result, "Invalid subtraction second number is greater than first number");
+} 
+END_TEST
+
 START_TEST(given_IIII_and_I_when_subtract_then_IIII_is_not_valid) {
 	char * result = subtract_roman_numerals("IIII", "I");
 	ck_assert_str_eq(result, "First roman numeral is not valid");
@@ -111,6 +117,7 @@ TCase *create_subtract_test_case() {
 	tcase_add_test(subtract_case, given_M_and_CM_when_subtract_then_C);
 	tcase_add_test(subtract_case, given_CM_and_X_when_subtract_then_DCCCXC);
 
+	tcase_add_test(subtract_case, given_I_and_II_when_subtract_then_invalid_subtraction_second_number_is_greater_than_first_number);
 	tcase_add_test(subtract_case, given_IIII_and_I_when_subtract_then_IIII_is_not_valid);
 	tcase_add_test(subtract_case, given_I_and_IIII_when_subtract_then_IIII_is_not_valid);
 	return subtract_case;
