@@ -26,8 +26,7 @@ char *to_roman(int arabic) {
 		return "Negative numbers are not allowed";
 	}
 	
-	char *roman;
-	roman = (char *) malloc(15);
+	char roman[16];
 	int currentIndex = 0;
 	while(arabic != 0) {
 		struct RomanArabicMap map = get_roman_arabic_map(arabic);
@@ -38,5 +37,5 @@ char *to_roman(int arabic) {
 		}
 	}
 	roman[currentIndex] = '\0';
-	return roman;
+	return strdup(roman);
 }
