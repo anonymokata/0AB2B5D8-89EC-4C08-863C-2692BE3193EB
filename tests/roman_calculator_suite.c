@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <check.h>
+#include <errno.h>
 #include "../src/roman_calculator.h"
+#include "../src/roman_error_codes.h"
 #include "roman_calculator_suite.h"
 
 START_TEST(given_I_and_I_when_add_then_II) {
@@ -39,6 +41,7 @@ END_TEST
 START_TEST(given_IIII_and_I_when_add_then_IIII_is_not_valid) {
 	char * result = add_roman_numerals("IIII", "I");
 	ck_assert_str_eq(result, "First roman numeral is not valid");
+	ck_assert_int_eq(ROMAN_NUMERAL_LIMIT, errno);
 }
 END_TEST
 
