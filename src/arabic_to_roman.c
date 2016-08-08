@@ -17,6 +17,10 @@ char *to_roman(int arabic) {
 	if(arabic > MAX_ARABIC_VALUE) {
 		return "Resulting value is not valid";
 	}
+
+	if(arabic == 0) {
+		return "Zero is not a valid roman number";
+	}
 	
 	char *roman;
 	roman = (char *) malloc(15);
