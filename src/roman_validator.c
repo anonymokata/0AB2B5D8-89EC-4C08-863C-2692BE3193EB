@@ -38,6 +38,6 @@ bool is_roman_valid(const char *roman) {
 		}
 	}
 
-	errno = 0;
+	errno = ROMAN_SUCCESS;
 	return true;
 }

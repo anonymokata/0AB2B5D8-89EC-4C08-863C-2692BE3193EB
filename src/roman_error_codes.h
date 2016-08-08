@@ -1,4 +1,5 @@
 #ifndef ROMAN_ERROR_CODES
 #define ROMAN_ERROR_CODES
+const int ROMAN_SUCCESS;
 const int ROMAN_NUMERAL_LIMIT;
 #endif
