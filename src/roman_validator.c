@@ -8,6 +8,7 @@ bool is_roman_valid(const char *roman) {
 	int mCount = 0;
 	int xCount = 0;
 	int cCount = 0;
+	int dCount = 0;
 	for(int i = 0; i < length; ++i) {
 		if(roman[i] == 'I') {
 			iCount++;
@@ -24,9 +25,14 @@ bool is_roman_valid(const char *roman) {
 		if(roman[i] == 'C') {
 			cCount++;
 		}
+
+		if(roman[i] == 'D') {
+			dCount ++;
+		}
 	}
 	return iCount < 4
 		&& mCount < 4
 		&& xCount < 4
-		&& cCount < 4;
+		&& cCount < 4
+		&& dCount < 2;
 }
