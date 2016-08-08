@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include "roman_arabic_map.h"
 
 struct RomanArabicMap get_roman_arabic_map(int remainder) {
@@ -19,6 +20,7 @@ char *to_roman(int arabic) {
 	}
 
 	if(arabic == 0) {
+		errno = 7;
 		return "Zero is not a valid roman number";
 	}
 
