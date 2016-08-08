@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <check.h>
+#include <errno.h>
 #include "../src/arabic_to_roman.h"
 #include "arabic_to_roman_suite.h"
 
