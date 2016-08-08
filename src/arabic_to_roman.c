@@ -42,5 +42,6 @@ char *to_roman(int arabic) {
 		}
 	}
 	roman[currentIndex] = '\0';
+	errno = ROMAN_SUCCESS;
 	return strdup(roman);
 }
