@@ -21,7 +21,6 @@ bool is_roman_valid(const char *roman) {
 	};
 
 	int limitSize = sizeof(limits) / sizeof(RomanLimit);
-
 	for(int i = 0; i < length; ++i) {
 		for(int j = 0; j < limitSize; ++j) {
 			if (limits[j].roman == roman[i]) {
