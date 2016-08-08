@@ -6,12 +6,16 @@
 #include "roman_to_arabic.h"
 #include "arabic_to_roman.h"
 
+bool is_roman_numeral_valid(const char *roman) {
+	return strcmp(roman , "IIII") != 0;
+}
+
 char * add_roman_numerals(const char *first, const char *second) {
-	if(strcmp(first, "IIII") == 0) {
+	if(!is_roman_numeral_valid(first)) {
 		return "First roman numeral is not valid";
 	}
 
-	if(strcmp(second, "IIII") == 0) {
+	if(!is_roman_numeral_valid(second)) {
 		return "Second roman numeral is not valid";
 	}
 
@@ -21,7 +25,7 @@ char * add_roman_numerals(const char *first, const char *second) {
 }
 
 char * subtract_roman_numerals(const char *first, const char *second) {
-	if(strcmp(first, "IIII") == 0) {
+	if(!is_roman_numeral_valid(first)) {
 		return "First roman numeral is not valid";
 	}
 
@@ -29,3 +33,4 @@ char * subtract_roman_numerals(const char *first, const char *second) {
 	int secondArabic = to_arabic(second);
 	return to_roman(firstArabic - secondArabic);
 }
+
