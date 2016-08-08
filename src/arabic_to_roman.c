@@ -14,6 +14,10 @@ struct RomanArabicMap get_roman_arabic_map(int remainder) {
 }
 
 char *to_roman(int arabic) {
+	if(arabic > MAX_ARABIC_VALUE) {
+		return "Resulting value is not valid";
+	}
+	
 	char *roman;
 	roman = (char *) malloc(15);
 	int currentIndex = 0;
