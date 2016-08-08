@@ -107,6 +107,13 @@ START_TEST(given_3999_when_to_roman_then_MMMCMXCIX) {
 }
 END_TEST
 
+START_TEST(given_4000_when_to_roman_then_roman_number_too_large) {
+	char *result = to_roman(4000);
+	ck_assert_str_eq(result, "Resulting value is not valid");
+	ck_assert_int_eq(errno, 6);
+}
+END_TEST
+
 START_TEST(given_0_when_to_roman_then_zero_is_not_a_valid_roman_number) {
 	char *result = to_roman(0);
 	ck_assert_str_eq(result, "Zero is not a valid roman number");
@@ -146,7 +153,8 @@ Suite * arabic_to_roman_suite(void) {
 	tcase_add_test(testCase, given_999_when_to_roman_then_CMXCIX);
 	tcase_add_test(testCase, given_1099_when_to_roman_then_MXCIX);
 	tcase_add_test(testCase, given_3999_when_to_roman_then_MMMCMXCIX);
-	
+
+	tcase_add_test(testCase, given_4000_when_to_roman_then_roman_number_too_large);
 	tcase_add_test(testCase, given_0_when_to_roman_then_zero_is_not_a_valid_roman_number);
 	tcase_add_test(testCase, given_negative_1_when_to_roman_then_negative_numbers_are_not_allowed);
 
